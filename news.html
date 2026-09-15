@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新闻资讯 - 厦门韩轩一品装饰设计工程有限公司</title>
+    <meta name="description" content="韩轩一品最新公司动态、行业洞察与装修知识科普。" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a2540'/%3E%3Ctext x='50' y='62' font-size='42' text-anchor='middle' fill='%23c8a25a' font-family='serif' font-weight='800'%3E韩%3C/text%3E%3C/svg%3E" />
+    <style>
+        /* 新闻详情遮罩 */
+        .news-thumb-overlay {
+            position: absolute; inset: 0;
+            display: grid; place-items: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-family: var(--font-serif);
+            font-size: 56px;
+            z-index: 1;
+        }
+        /* 分页 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 64px;
+        }
+        .pagination a, .pagination span {
+            display: grid;
+            place-items: center;
+            min-width: 40px;
+            height: 40px;
+            padding: 0 12px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            color: var(--color-text);
+            background: #fff;
+            transition: all var(--transition);
+        }
+        .pagination a:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+        .pagination .active {
+            background: var(--color-primary);
+            color: #fff;
+            border-color: var(--color-primary);
+        }
+        .pagination .disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============ 导航 ============ -->
+<header class="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+            <span class="nav-logo-mark">韩</span>
+            <span class="nav-logo-text">韩轩一品装饰<small>HANXUAN · YIPIN</small></span>
+        </a>
+        <nav class="nav-menu" id="navMenu">
+            <a href="index.html" class="nav-link">首页</a>
+            <a href="about.html" class="nav-link">关于我们</a>
+            <a href="services.html" class="nav-link">产品服务</a>
+            <a href="cases.html" class="nav-link">客户案例</a>
+            <a href="team.html" class="nav-link">团队介绍</a>
+            <a href="news.html" class="nav-link active">新闻资讯</a>
+            <a href="contact.html" class="nav-link">联系我们</a>
+            <a href="contact.html" class="btn btn-accent nav-cta">免费咨询</a>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="菜单"><span></span></button>
+    </div>
+</header>
+
+<!-- ============ Banner ============ -->
+<section class="page-banner">
+    <div class="container page-banner-inner">
+        <h1>新闻资讯</h1>
+        <p class="page-banner-sub">公司动态 · 行业洞察 · 装修知识科普</p>
+        <div class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span class="breadcrumb-sep">/</span>
+            <span>新闻资讯</span>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 资讯分类 ============ -->
+<section class="section">
+    <div class="container">
+        <div class="cases-filter fade-up">
+            <button class="filter-btn active" data-filter="all">全部资讯</button>
+            <button class="filter-btn" data-filter="company">公司动态</button>
+            <button class="filter-btn" data-filter="industry">行业资讯</button>
+            <button class="filter-btn" data-filter="knowledge">装修知识</button>
+        </div>
+
+        <!-- 头条 -->
+        <div class="news-grid fade-up">
+            <article class="news-card" data-category="company">
+                <div class="news-thumb">
+                    <div class="news-thumb-overlay">头</div>
+                    <span class="news-thumb-tag">公司动态</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta">
+                        <span>2026-08-20</span>
+                        <span>·</span>
+                        <span>浏览 1,234</span>
+                    </div>
+                    <h3 class="news-title">韩轩一品承接湖里区大型住宅项目正式开工</h3>
+                    <p class="news-excerpt">近日，我司承接的湖里区某住宅精装修项目正式进场施工，预计工期 90 天，包含水电、泥木、油漆及安装全流程……</p>
+                </div>
+            </article>
+            <article class="news-card" data-category="industry">
+                <div class="news-thumb">
+                    <div class="news-thumb-overlay">业</div>
+                    <span class="news-thumb-tag">行业资讯</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta">
+                        <span>2026-07-15</span>
+                        <span>·</span>
+                        <span>浏览 856</span>
+                    </div>
+                    <h3 class="news-title">2026 厦门住宅装修市场新趋势解读</h3>
+                    <p class="news-excerpt">随着改善型住宅需求提升，业主对设计感与品质感的要求越来越高，"轻硬装、重软装"理念持续走热……</p>
+                </div>
+            </article>
+            <article class="news-card" data-category="knowledge">
+                <div class="news-thumb">
+                    <div class="news-thumb-overlay">知</div>
+                    <span class="news-thumb-tag">装修知识</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta">
+                        <span>2026-06-28</span>
+                        <span>·</span>
+                        <span>浏览 642</span>
+                    </div>
+                    <h3 class="news-title">梅雨季装修施工的 7 个关键注意事项</h3>
+                    <p class="news-excerpt">厦门春夏梅雨季节较长，装修施工需要重点关注防潮、防水与材料保护，避免因湿度过高造成损失……</p>
+                </div>
+            </article>
+        </div>
+
+        <!-- 二级列表 -->
+        <div class="news-grid fade-up mt-48" style="margin-top:48px">
+            <article class="news-card" data-category="knowledge">
+                <div class="news-thumb">
+                    <div class="news-thumb-overlay">水</div>
+                    <span class="news-thumb-tag">装修知识</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta">
+                        <span>2026-05-30</span>
+                        <span>·</span>
+                        <span>浏览 482</span>
+                    </div>
+                    <h3 class="news-title">水电改造避坑指南：从报价到验收全流程</h3>
+                    <p class="news-excerpt">水电改造是装修中最容易"踩坑"的环节，本文从走线、开槽、防水、验收四步拆解常见误区。</p>
+                </div>
+            </article>
+            <article class="news-card" data-category="industry">
+                <div class="news-thumb">
+                    <div class="news-thumb-overlay">标</div>
+                    <span class="news-thumb-tag">行业资讯</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta">
+                        <span>2026-05-12</span>
+                        <span>·</span>
+                        <span>浏览 396</span>
+                    </div>
+                    <h3 class="news-title">新版《住宅装饰装修工程施工规范》要点速读</h3>
+                    <p class="news-excerpt">住建部最新修订的施工规范对环保、防水、电气等多项指标提出更高要求，行业准入门槛进一步提升。</p>
+                </div>
+            </article>
+            <article class="news-card" data-category="company">
+                <div class="news-thumb">
+                    <div class="news-thumb-overlay">聘</div>
+                    <span class="news-thumb-tag">公司动态</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta">
+                        <span>2026-04-25</span>
+                        <span>·</span>
+                        <span>浏览 312</span>
+                    </div>
+                    <h3 class="news-title">韩轩一品 2026 春季招聘开启 · 多个岗位虚位以待</h3>
+                    <p class="news-excerpt">为支撑公司业务发展，现面向社会招聘资深设计师、项目经理、监理工程师等岗位，欢迎自荐与推荐。</p>
+                </div>
+            </article>
+            <article class="news-card" data-category="knowledge">
+                <div class="news-thumb">
+                    <div class="news-thumb-overlay">材</div>
+                    <span class="news-thumb-tag">装修知识</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta">
+                        <span>2026-04-10</span>
+                        <span>·</span>
+                        <span>浏览 528</span>
+                    </div>
+                    <h3 class="news-title">装修主材选购：板材、瓷砖与涂料的关键鉴别点</h3>
+                    <p class="news-excerpt">材料是装修品质的基石，本文整理板材、瓷砖、涂料三大类常见主材的鉴别技巧与选购建议。</p>
+                </div>
+            </article>
+            <article class="news-card" data-category="industry">
+                <div class="news-thumb">
+                    <div class="news-thumb-overlay">设</div>
+                    <span class="news-thumb-tag">行业资讯</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta">
+                        <span>2026-03-22</span>
+                        <span>·</span>
+                        <span>浏览 408</span>
+                    </div>
+                    <h3 class="news-title">2026 年厦门室内设计流行色发布</h3>
+                    <p class="news-excerpt">本季主打"自然栖居"主题，奶油白、原木棕、雾霾蓝、苔藓绿成为高频搭配色，家装空间更显柔和。</p>
+                </div>
+            </article>
+            <article class="news-card" data-category="company">
+                <div class="news-thumb">
+                    <div class="news-thumb-overlay">签</div>
+                    <span class="news-thumb-tag">公司动态</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta">
+                        <span>2026-03-08</span>
+                        <span>·</span>
+                        <span>浏览 286</span>
+                    </div>
+                    <h3 class="news-title">韩轩一品与某大型地产集团签订年度战略合作协议</h3>
+                    <p class="news-excerpt">本次合作涵盖该地产集团福建区域多个项目的批量精装修工程，公司将组建专项团队保障交付。</p>
+                </div>
+            </article>
+            <article class="news-card" data-category="knowledge">
+                <div class="news-thumb">
+                    <div class="news-thumb-overlay">验</div>
+                    <span class="news-thumb-tag">装修知识</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta">
+                        <span>2026-02-19</span>
+                        <span>·</span>
+                        <span>浏览 612</span>
+                    </div>
+                    <h3 class="news-title">收房验收全攻略：墙面、地面、门窗与水电要点</h3>
+                    <p class="news-excerpt">装修完工不是终点，业主收房验收同样关键。本文整理了一套"10 步验收法"供业主参考。</p>
+                </div>
+            </article>
+            <article class="news-card" data-category="industry">
+                <div class="news-thumb">
+                    <div class="news-thumb-overlay">环</div>
+                    <span class="news-thumb-tag">行业资讯</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta">
+                        <span>2026-01-25</span>
+                        <span>·</span>
+                        <span>浏览 354</span>
+                    </div>
+                    <h3 class="news-title">环保装修新风向：低甲醛、低 VOC 材料成主流</h3>
+                    <p class="news-excerpt">消费者健康意识提升倒逼行业升级，环保材料与施工工艺成为装修企业的核心竞争力之一。</p>
+                </div>
+            </article>
+            <article class="news-card" data-category="company">
+                <div class="news-thumb">
+                    <div class="news-thumb-overlay">奖</div>
+                    <span class="news-thumb-tag">公司动态</span>
+                </div>
+                <div class="news-body">
+                    <div class="news-meta">
+                        <span>2026-01-08</span>
+                        <span>·</span>
+                        <span>浏览 478</span>
+                    </div>
+                    <h3 class="news-title">韩轩一品荣获 2025 年度厦门市装饰行业优秀企业</h3>
+                    <p class="news-excerpt">此次评选由厦门市建筑装饰协会组织，经多轮评审，我公司凭借综合实力与客户口碑成功入选。</p>
+                </div>
+            </article>
+        </div>
+
+        <!-- 分页 -->
+        <div class="pagination fade-up">
+            <span class="disabled">‹ 上一页</span>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">下一页 ›</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 订阅 ============ -->
+<section class="section section-soft">
+    <div class="container">
+        <div class="cta-inner fade-up" style="max-width:600px;margin:0 auto;text-align:center">
+            <span class="section-eyebrow">SUBSCRIBE · 订阅资讯</span>
+            <h2 class="section-title" style="font-size:32px">第一时间获取最新动态</h2>
+            <p class="section-desc" style="margin-bottom:32px">订阅韩轩一品资讯，获取公司动态、行业趋势与装修干货。</p>
+            <form class="form-row" data-form style="max-width:480px;margin:0 auto">
+                <input type="email" class="form-control" placeholder="请输入您的邮箱地址" required />
+                <button type="submit" class="btn btn-accent" style="white-space:nowrap">立即订阅</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 页脚 ============ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo">
+                    <span class="nav-logo-mark">韩</span>
+                    <span class="nav-logo-text" style="color:#fff">韩轩一品装饰<small style="color:rgba(255,255,255,.5)">HANXUAN · YIPIN</small></span>
+                </a>
+                <p>厦门韩轩一品装饰设计工程有限公司，专业承接住宅装饰装修、建设工程设计、监理、劳务分包等业务，深耕厦门，辐射福建。</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="微信">微</a>
+                    <a href="#" aria-label="抖音">抖</a>
+                    <a href="#" aria-label="小红书">书</a>
+                    <a href="#" aria-label="电话">☎</a>
+                </div>
+            </div>
+            <div>
+                <h5>服务项目</h5>
+                <div class="footer-links">
+                    <a href="services.html#residential">住宅装饰装修</a>
+                    <a href="services.html#design">建设工程设计</a>
+                    <a href="services.html#labor">建筑劳务分包</a>
+                    <a href="services.html#supervision">建设工程监理</a>
+                    <a href="services.html#demolition">建筑物拆除</a>
+                </div>
+            </div>
+            <div>
+                <h5>关于公司</h5>
+                <div class="footer-links">
+                    <a href="about.html">公司简介</a>
+                    <a href="about.html#timeline">发展历程</a>
+                    <a href="about.html#culture">企业文化</a>
+                    <a href="team.html">团队介绍</a>
+                    <a href="news.html">新闻资讯</a>
+                </div>
+            </div>
+            <div>
+                <h5>联系我们</h5>
+                <div class="footer-contact-item"><strong>地址</strong><span>厦门市思明区软件园二期观日路 56 号</span></div>
+                <div class="footer-contact-item"><strong>电话</strong><span>0592-0000000</span></div>
+                <div class="footer-contact-item"><strong>邮箱</strong><span>contact@hanxuan-yipin.com</span></div>
+                <div class="footer-contact-item"><strong>营业</strong><span>周一至周日 9:00–18:00</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 厦门韩轩一品装饰设计工程有限公司 版权所有</span>
+            <span>闽ICP备XXXXXXXX号-1 · 闽公网安备 3502XXXXXXXXX号</span>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
