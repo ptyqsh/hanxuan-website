@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>产品服务 - 厦门韩轩一品装饰设计工程有限公司</title>
+    <meta name="description" content="韩轩一品提供住宅室内装饰装修、建设工程设计、建筑劳务分包、建设工程监理、建筑物拆除等五大业务板块，专业可靠。" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a2540'/%3E%3Ctext x='50' y='62' font-size='42' text-anchor='middle' fill='%23c8a25a' font-family='serif' font-weight='800'%3E韩%3C/text%3E%3C/svg%3E" />
+    <style>
+        /* 服务详情内页样式 */
+        .service-detail { padding: 96px 0; border-bottom: 1px solid var(--color-border); }
+        .service-detail:nth-child(even) { background: var(--color-bg-soft); }
+        .service-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .service-detail-grid.reverse { direction: rtl; }
+        .service-detail-grid.reverse > * { direction: ltr; }
+        @media (max-width: 960px) {
+            .service-detail-grid { grid-template-columns: 1fr; gap: 48px; }
+            .service-detail-grid.reverse { direction: ltr; }
+        }
+        .service-num {
+            font-family: var(--font-serif);
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--color-accent);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        .service-detail h2 {
+            font-size: clamp(28px, 4vw, 38px);
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .service-detail-lead {
+            font-size: 17px;
+            color: var(--color-text-light);
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+        .service-tag {
+            padding: 6px 14px;
+            background: var(--color-bg-section);
+            color: var(--color-primary);
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 100px;
+        }
+        .service-scope {
+            display: grid;
+            gap: 12px;
+        }
+        .service-scope-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            font-size: 15px;
+            color: var(--color-text);
+        }
+        .service-scope-item::before {
+            content: "◆";
+            color: var(--color-accent);
+            font-size: 14px;
+            line-height: 1.7;
+            flex-shrink: 0;
+        }
+        .service-visual {
+            aspect-ratio: 4 / 3;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-lighter));
+            border-radius: var(--radius-lg);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .service-visual::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(200, 162, 90, 0.25), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1), transparent 50%);
+        }
+        .service-visual-content {
+            position: absolute;
+            inset: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-md);
+            display: grid;
+            place-items: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-family: var(--font-serif);
+            font-size: 80px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 768px) { .process-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 480px) { .process-grid { grid-template-columns: 1fr; } }
+        .process-card {
+            padding: 32px 24px;
+            background: #fff;
+            border-radius: var(--radius-md);
+            position: relative;
+            border: 1px solid var(--color-border);
+        }
+        .process-num {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--color-accent);
+            opacity: 0.5;
+        }
+        .process-card h5 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin: 32px 0 12px;
+        }
+        .process-card p {
+            font-size: 14px;
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============ 导航 ============ -->
+<header class="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+            <span class="nav-logo-mark">韩</span>
+            <span class="nav-logo-text">韩轩一品装饰<small>HANXUAN · YIPIN</small></span>
+        </a>
+        <nav class="nav-menu" id="navMenu">
+            <a href="index.html" class="nav-link">首页</a>
+            <a href="about.html" class="nav-link">关于我们</a>
+            <a href="services.html" class="nav-link active">产品服务</a>
+            <a href="cases.html" class="nav-link">客户案例</a>
+            <a href="team.html" class="nav-link">团队介绍</a>
+            <a href="news.html" class="nav-link">新闻资讯</a>
+            <a href="contact.html" class="nav-link">联系我们</a>
+            <a href="contact.html" class="btn btn-accent nav-cta">免费咨询</a>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="菜单"><span></span></button>
+    </div>
+</header>
+
+<!-- ============ Banner ============ -->
+<section class="page-banner">
+    <div class="container page-banner-inner">
+        <h1>产品服务</h1>
+        <p class="page-banner-sub">五大业务板块 · 全流程工程服务能力</p>
+        <div class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span class="breadcrumb-sep">/</span>
+            <span>产品服务</span>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 服务概览卡片 ============ -->
+<section class="section">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="section-eyebrow">OUR SERVICES · 业务总览</span>
+            <h2 class="section-title">一站式工程服务 · 全链路覆盖</h2>
+            <p class="section-desc">
+                从设计、施工、监理到拆除，韩轩一品构建完整的工程服务能力，让业主与项目方都能安心、省心、放心。
+            </p>
+        </div>
+        <div class="services-grid fade-up">
+            <div class="service-card">
+                <div class="service-icon">01</div>
+                <h3>住宅室内装饰装修</h3>
+                <p>私宅、平层、别墅全案装饰装修服务。</p>
+                <a href="#residential" class="more">查看详情</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">02</div>
+                <h3>建设工程设计</h3>
+                <p>方案、初设、施工图全过程设计。</p>
+                <a href="#design" class="more">查看详情</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">03</div>
+                <h3>建筑劳务分包</h3>
+                <p>规范劳务管理，专业施工班组。</p>
+                <a href="#labor" class="more">查看详情</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">04</div>
+                <h3>建设工程监理</h3>
+                <p>质量、进度、安全全方位监管。</p>
+                <a href="#supervision" class="more">查看详情</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">05</div>
+                <h3>建筑物拆除作业</h3>
+                <p>安全环保规范化拆除（爆破除外）。</p>
+                <a href="#demolition" class="more">查看详情</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 服务详情 1：住宅装饰 ============ -->
+<section class="service-detail" id="residential">
+    <div class="container">
+        <div class="service-detail-grid fade-up">
+            <div>
+                <div class="service-num">01</div>
+                <h2>住宅室内装饰装修</h2>
+                <p class="service-detail-lead">
+                    专注私宅、平层、别墅等居住空间的装饰装修，提供从户型规划、空间设计、硬装施工到软装搭配的全案服务，
+                    致力于为您构筑兼具美感与功能的理想之家。
+                </p>
+                <div class="service-tags">
+                    <span class="service-tag">私宅全案</span>
+                    <span class="service-tag">平层装修</span>
+                    <span class="service-tag">别墅装修</span>
+                    <span class="service-tag">旧房翻新</span>
+                    <span class="service-tag">软装搭配</span>
+                </div>
+                <div class="service-scope">
+                    <div class="service-scope-item">户型规划与空间布局优化</div>
+                    <div class="service-scope-item">水电、泥木、油漆等隐蔽工程与面层施工</div>
+                    <div class="service-scope-item">橱柜、衣柜、门窗等定制安装服务</div>
+                    <div class="service-scope-item">地板、瓷砖、墙板等主材铺装</div>
+                    <div class="service-scope-item">家具、灯具、布艺等软装陈设搭配</div>
+                    <div class="service-scope-item">环保材料选购与室内环境检测</div>
+                </div>
+            </div>
+            <div class="service-visual">
+                <div class="service-visual-content">🏠</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 服务详情 2：建设工程设计 ============ -->
+<section class="service-detail" id="design">
+    <div class="container">
+        <div class="service-detail-grid reverse fade-up">
+            <div>
+                <div class="service-num">02</div>
+                <h2>建设工程设计</h2>
+                <p class="service-detail-lead">
+                    拥有建设工程设计专业资质，提供方案设计、初步设计与施工图设计等全过程服务，
+                    业务范围涵盖住宅、商业、办公及小型公共建筑。
+                </p>
+                <div class="service-tags">
+                    <span class="service-tag">方案设计</span>
+                    <span class="service-tag">初步设计</span>
+                    <span class="service-tag">施工图设计</span>
+                    <span class="service-tag">室内设计</span>
+                    <span class="service-tag">改造设计</span>
+                </div>
+                <div class="service-scope">
+                    <div class="service-scope-item">项目概念方案与平面布局推敲</div>
+                    <div class="service-scope-item">效果图、SU 模型等可视化表达</div>
+                    <div class="service-scope-item">施工图绘制与节点深化设计</div>
+                    <div class="service-scope-item">材料样板与设计说明编制</div>
+                    <div class="service-scope-item">施工配合与设计变更管理</div>
+                </div>
+            </div>
+            <div class="service-visual">
+                <div class="service-visual-content">📐</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 服务详情 3：建筑劳务 ============ -->
+<section class="service-detail" id="labor">
+    <div class="container">
+        <div class="service-detail-grid fade-up">
+            <div>
+                <div class="service-num">03</div>
+                <h2>建筑劳务分包</h2>
+                <p class="service-detail-lead">
+                    拥有建筑施工劳务不分等级资质，建立了稳定的劳务人员储备与培训体系，
+                    为各类工程项目提供规范化、专业化的施工劳务服务。
+                </p>
+                <div class="service-tags">
+                    <span class="service-tag">木工班组</span>
+                    <span class="service-tag">泥水班组</span>
+                    <span class="service-tag">水电班组</span>
+                    <span class="service-tag">油漆班组</span>
+                    <span class="service-tag">普工班组</span>
+                </div>
+                <div class="service-scope">
+                    <div class="service-scope-item">实名制劳务人员管理</div>
+                    <div class="service-scope-item">上岗前安全与技术培训</div>
+                    <div class="service-scope-item">施工现场标准化作业</div>
+                    <div class="service-scope-item">劳务人员考勤与工资代发</div>
+                    <div class="service-scope-item">为总包/业主提供合规结算凭证</div>
+                </div>
+            </div>
+            <div class="service-visual">
+                <div class="service-visual-content">👷</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 服务详情 4：监理 ============ -->
+<section class="service-detail" id="supervision">
+    <div class="container">
+        <div class="service-detail-grid reverse fade-up">
+            <div>
+                <div class="service-num">04</div>
+                <h2>建设工程监理</h2>
+                <p class="service-detail-lead">
+                    具备房屋建筑工程监理资质，配备注册监理工程师团队，
+                    对项目质量、进度、安全、文明施工进行全方位监督管理，让每一道工序都有据可循。
+                </p>
+                <div class="service-tags">
+                    <span class="service-tag">质量监理</span>
+                    <span class="service-tag">进度管控</span>
+                    <span class="service-tag">安全监督</span>
+                    <span class="service-tag">造价审核</span>
+                    <span class="service-tag">验收交付</span>
+                </div>
+                <div class="service-scope">
+                    <div class="service-scope-item">施工组织设计与专项方案审核</div>
+                    <div class="service-scope-item">材料、构件进场验收见证取样</div>
+                    <div class="service-scope-item">关键工序与隐蔽工程旁站监理</div>
+                    <div class="service-scope-item">进度节点对比与纠偏</div>
+                    <div class="service-scope-item">竣工预验收与质量评估报告</div>
+                </div>
+            </div>
+            <div class="service-visual">
+                <div class="service-visual-content">🔍</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 服务详情 5：拆除 ============ -->
+<section class="service-detail" id="demolition">
+    <div class="container">
+        <div class="service-detail-grid fade-up">
+            <div>
+                <div class="service-num">05</div>
+                <h2>建筑物拆除作业</h2>
+                <p class="service-detail-lead">
+                    拥有建筑物拆除作业资质（爆破作业除外），可承接各类建（构）筑物的安全拆除与清理，
+                    在施工安全、环境保护、噪音管控等方面均建立完善的作业规范。
+                </p>
+                <div class="service-tags">
+                    <span class="service-tag">室内拆除</span>
+                    <span class="service-tag">厂房拆除</span>
+                    <span class="service-tag">混凝土破碎</span>
+                    <span class="service-tag">废料清运</span>
+                    <span class="service-tag">安全围护</span>
+                </div>
+                <div class="service-scope">
+                    <div class="service-scope-item">拆除前现场勘查与方案编制</div>
+                    <div class="service-scope-item">周边围挡、扬尘与噪音控制</div>
+                    <div class="service-scope-item">机械+人工组合拆除作业</div>
+                    <div class="service-scope-item">建筑垃圾分类与合规清运</div>
+                    <div class="service-scope-item">拆除后场地平整与移交</div>
+                </div>
+            </div>
+            <div class="service-visual">
+                <div class="service-visual-content">🏗️</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 服务流程 ============ -->
+<section class="section section-soft">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="section-eyebrow">PROCESS · 合作流程</span>
+            <h2 class="section-title">规范透明 · 八个步骤落地</h2>
+            <p class="section-desc">清晰流程让每一个项目都心中有数。</p>
+        </div>
+        <div class="process-grid fade-up">
+            <div class="process-card">
+                <span class="process-num">01</span>
+                <h5>需求沟通</h5>
+                <p>电话或面访，了解项目背景与核心诉求。</p>
+            </div>
+            <div class="process-card">
+                <span class="process-num">02</span>
+                <h5>现场勘测</h5>
+                <p>实地量房、拍照记录、评估现场条件。</p>
+            </div>
+            <div class="process-card">
+                <span class="process-num">03</span>
+                <h5>方案设计</h5>
+                <p>输出方案、效果图与施工图，沟通确认。</p>
+            </div>
+            <div class="process-card">
+                <span class="process-num">04</span>
+                <h5>报价签约</h5>
+                <p>透明清单报价，签订规范合同。</p>
+            </div>
+            <div class="process-card">
+                <span class="process-num">05</span>
+                <h5>材料进场</h5>
+                <p>主材辅材按节点进场，业主验收确认。</p>
+            </div>
+            <div class="process-card">
+                <span class="process-num">06</span>
+                <h5>规范施工</h5>
+                <p>按图施工，关键工序项目监理旁站。</p>
+            </div>
+            <div class="process-card">
+                <span class="process-num">07</span>
+                <h5>节点验收</h5>
+                <p>水电、泥木、油漆等分阶段验收。</p>
+            </div>
+            <div class="process-card">
+                <span class="process-num">08</span>
+                <h5>质保服务</h5>
+                <p>整体保修，定期回访。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section cta-section">
+    <div class="container">
+        <div class="cta-inner fade-up">
+            <h2>现在就聊聊您的项目想法</h2>
+            <p>不论是私宅装修，还是工程项目咨询，我们都将提供专业建议与方案。</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-accent">预约咨询</a>
+                <a href="cases.html" class="btn btn-outline-light">查看案例</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 页脚 ============ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo">
+                    <span class="nav-logo-mark">韩</span>
+                    <span class="nav-logo-text" style="color:#fff">韩轩一品装饰<small style="color:rgba(255,255,255,.5)">HANXUAN · YIPIN</small></span>
+                </a>
+                <p>厦门韩轩一品装饰设计工程有限公司，专业承接住宅装饰装修、建设工程设计、监理、劳务分包等业务，深耕厦门，辐射福建。</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="微信">微</a>
+                    <a href="#" aria-label="抖音">抖</a>
+                    <a href="#" aria-label="小红书">书</a>
+                    <a href="#" aria-label="电话">☎</a>
+                </div>
+            </div>
+            <div>
+                <h5>服务项目</h5>
+                <div class="footer-links">
+                    <a href="services.html#residential">住宅装饰装修</a>
+                    <a href="services.html#design">建设工程设计</a>
+                    <a href="services.html#labor">建筑劳务分包</a>
+                    <a href="services.html#supervision">建设工程监理</a>
+                    <a href="services.html#demolition">建筑物拆除</a>
+                </div>
+            </div>
+            <div>
+                <h5>关于公司</h5>
+                <div class="footer-links">
+                    <a href="about.html">公司简介</a>
+                    <a href="about.html#timeline">发展历程</a>
+                    <a href="about.html#culture">企业文化</a>
+                    <a href="team.html">团队介绍</a>
+                    <a href="news.html">新闻资讯</a>
+                </div>
+            </div>
+            <div>
+                <h5>联系我们</h5>
+                <div class="footer-contact-item"><strong>地址</strong><span>厦门市思明区软件园二期观日路 56 号</span></div>
+                <div class="footer-contact-item"><strong>电话</strong><span>0592-0000000</span></div>
+                <div class="footer-contact-item"><strong>邮箱</strong><span>contact@hanxuan-yipin.com</span></div>
+                <div class="footer-contact-item"><strong>营业</strong><span>周一至周日 9:00–18:00</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 厦门韩轩一品装饰设计工程有限公司 版权所有</span>
+            <span>闽ICP备XXXXXXXX号-1 · 闽公网安备 3502XXXXXXXXX号</span>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
